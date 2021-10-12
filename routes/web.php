@@ -13,6 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+*/
+
+
+Route::get('/', 'FileUploadController@fileUpload')->name('file.upload');
+Route::post('/', 'FileUploadController@fileUploadPost')->name('file.upload.post');
