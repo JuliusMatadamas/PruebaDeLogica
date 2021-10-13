@@ -6,3 +6,25 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+// Fontawesome
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
+td {
+    padding: 2px !important;
+}
+
+.centered {
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+}
+
+.pared {
+    background-color: #6c757d;
+}
+
+.iluminado {
+    background-color: #ffed4a;
+}

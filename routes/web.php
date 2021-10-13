@@ -13,16 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/*
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function(){
+    return view('menu');
+})->name('home');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-*/
-
-
-Route::get('/', 'FileUploadController@fileUpload')->name('file.upload');
-Route::post('/', 'FileUploadController@fileUploadPost')->name('file.upload.post');
+Route::get('/fileupload', 'FileUploadController@fileUpload')->name('file.upload');
+Route::post('/fileupload', 'FileUploadController@fileUploadPost')->name('file.upload.post');
+Route::get('/lightedroom', 'LightedRoomController@index')->name('lighted.room');

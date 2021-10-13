@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+
 
 class FileUploadController extends Controller
 {
@@ -19,9 +21,12 @@ class FileUploadController extends Controller
         ]);
 
         // Se renombra el archivo
-        $fileName = time().'.'.$request->file->extension();
+        $fileName = 'habitacion.'.$request->file->extension();
 
-        // Se almacena en la carpeta 'uploads'
+        // Se eimina el archivo anterior
+        File::deleteDirectory(public_path('uploads'));
+
+        // Se crea y almacena en la carpeta 'uploads'
         $request->file->move(public_path('uploads'), $fileName);
 
         // Se devuelve la respuesta
