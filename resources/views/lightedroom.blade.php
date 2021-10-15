@@ -12,34 +12,45 @@
                     <p>Colocación de Bombillos Óptimos</p>
 
                     <div class="row">
-                        <div class="col-12">
-                            <table class="table table-bordered">
-                                @foreach($habitacion as $fila)
-                                    <tr>
-                                        @foreach($fila as $espacio)
-                                            @if($espacio["tipo"] == "pared")
-                                                <td class="pared">
-                                                    &nbsp;
-                                                </td>
-                                            @else
-                                                @if($espacio["bombilla"])
-                                                    <td class="iluminado">
-                                                        <i class="far fa-lightbulb"></i>
+                        <div class="col-12 room">
+                            @if($errors->any())
+                                <div class="alert alert-danger">
+                                    <p><strong>¡Ocurrió un error!</strong></p>
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @else
+                                <table class="table table-bordered">
+                                    @foreach($habitacion as $fila)
+                                        <tr>
+                                            @foreach($fila as $espacio)
+                                                @if($espacio["tipo"] == "pared")
+                                                    <td class="pared">
+                                                        &nbsp;
                                                     </td>
                                                 @else
-                                                    @if($espacio["iluminado"])
-                                                        <td class="iluminado">
+                                                    @if($espacio["bombilla"])
+                                                        <td class="iluminado text-center">
+                                                            <i class="far fa-lightbulb"></i>
                                                         </td>
                                                     @else
-                                                        <td>
-                                                        </td>
+                                                        @if($espacio["iluminado"])
+                                                            <td class="iluminado">
+                                                            </td>
+                                                        @else
+                                                            <td>
+                                                            </td>
+                                                        @endif
                                                     @endif
                                                 @endif
-                                            @endif
-                                        @endforeach
-                                    </tr>
-                                @endforeach
-                            </table>
+                                            @endforeach
+                                        </tr>
+                                    @endforeach
+                                </table>
+                            @endif
                         </div>
                     </div>
 

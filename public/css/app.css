@@ -15568,3 +15568,9 @@ td {
   background-color: #ffed4a;
 }
 
+.room {
+  overflow: auto;
+  max-height: 450px;
+  max-width: 750px;
+}
+
